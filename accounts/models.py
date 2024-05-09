@@ -6,7 +6,7 @@ from django.contrib.auth.models import Group, Permission
 
 
 class CustomUser(AbstractUser):
-    email = models.EmailField(unique=True)
+    # email = models.EmailField(unique=True)
     is_customer = models.BooleanField(default=False)
     is_business_owner = models.BooleanField(default=False)
     
@@ -19,7 +19,7 @@ CustomUser.user_permissions.field.related_name = 'custom_user_permissions'
 
 class Customer(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
-    phone_number = models.CharField(max_length=15)
+    phone_number = models.CharField(max_length=15, blank=True, null=True)
 
     def __str__(self):
         return self.user.email
@@ -27,9 +27,9 @@ class Customer(models.Model):
 
 class BusinessOwner(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
-    phone_number = models.CharField(max_length=15)
-    address = models.CharField(max_length=100)
-    business_name = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=15, blank=True, null=True)
+    address = models.CharField(max_length=100, blank=True, null=True)
+    business_name = models.CharField(max_length=100, blank=True, null=True)
 
 
     def __str__(self):

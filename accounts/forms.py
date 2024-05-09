@@ -7,10 +7,11 @@ from django.db import transaction
 User = get_user_model()
 
 class CustomerSignUpForm(UserCreationForm):
+    phone_number = forms.CharField(max_length=15)
 
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = ['username','password1', 'password2']
+        fields = ['username','password1', 'password2','phone_number']
         
     @transaction.atomic
     def save(self):

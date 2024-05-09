@@ -15,7 +15,7 @@
         {% endif %}
 
         <h2>Sign Up</h2>
-        <form action="/signup" method="post">
+        <form action="{% url 'customer_signup' %}" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <div class="form-group">

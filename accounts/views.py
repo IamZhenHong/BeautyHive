@@ -15,7 +15,7 @@ def signup(request):
 class CustomerSignUpView(CreateView):
     model = CustomUser
     form_class = CustomerSignUpForm
-    template_name = 'accounts/signup_form.html'
+    template_name = 'accounts/customer_signup_form.html'
 
     def get_context_data(self, **kwargs):
         kwargs['user_type'] = 'customer'
@@ -24,12 +24,12 @@ class CustomerSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('home')
+        return redirect('pages:customer_home')
 
 class BusinessOwnerSignUpView(CreateView):
     model = CustomUser
     form_class = BusinessOwnerSignUpForm
-    template_name = 'accounts/signup_form.html'
+    template_name = 'accounts/business_owner_signup_form.html'
 
     def get_context_data(self, **kwargs):
         kwargs['user_type'] = 'business_owner'
@@ -38,7 +38,7 @@ class BusinessOwnerSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('home')
+        return redirect('pages:business_owner_home')
     
 class LoginView(auth_views.LoginView):
     form_class = LoginForm
