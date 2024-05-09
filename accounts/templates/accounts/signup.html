@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Selection</title>
+    <!-- Add your CSS styles here -->
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Choose your Sign Up Option</h2>
+        <a href="{% url 'customer_signup' %}" class="btn">Sign Up as Customer</a>
+        <a href="{% url 'business_owner_signup' %}" class="btn">Sign Up as Business Owner</a>
+    </div>
+</body>
+</html>
