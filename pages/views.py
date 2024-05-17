@@ -9,8 +9,8 @@ def landing(request):
 
 @login_required
 def customer_home(request):
-    return render(request, 'pages/customer_home.html')
+    return render(request, 'pages/customer/customer_home.html')
 
 @login_required
 def business_owner_home(request):
-    return render(request, 'pages/business_owner_home.html')
+    return render(request, 'pages/business_owner/business_owner_home.html')
